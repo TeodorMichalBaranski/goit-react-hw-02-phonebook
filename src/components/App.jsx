@@ -48,8 +48,6 @@ import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
 export class App extends Component {
-  form = React.createRef();
-
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -60,7 +58,7 @@ export class App extends Component {
     filter: '',
   };
 
-  // FUNKCJA DO OBSŁUGI INPUTA W ZALEŻNOŚCI OD NAME NA KTÓYM WYWOŁANA
+  // FUNKCJA DO OBSŁUGI INPUTA W ZALEŻNOŚCI OD NAME NA KTÓYM JEST WYWOŁANA
 
   addNewContact = event => {
     event.preventDefault();
@@ -157,10 +155,7 @@ export class App extends Component {
           contacts={this.state.contacts}
         />
         <ContactList list={this.renderContacts()}>
-          <Filter
-            filteredContacts={this.filterContacts}
-            // handleInput={this.setStateInput}
-          />
+          <Filter filteredContacts={this.filterContacts} />
         </ContactList>
       </div>
     );
